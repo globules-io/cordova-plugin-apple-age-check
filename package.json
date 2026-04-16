@@ -18,7 +18,7 @@
      "license": "MIT",
      "repository": {
           "type": "git",
-          "url": "https://github.com/globules-io/cordova-plugin-apple-age-check.git"
+          "url": "git+https://github.com/globules-io/cordova-plugin-apple-age-check.git"
      },
      "engines": {
           "cordova": ">=10.0.0"
