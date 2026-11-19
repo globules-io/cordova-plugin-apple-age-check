@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="@globules-io/cordova-plugin-apple-age-check"
-        version="0.1.0">
+        version="0.2.0">
     <name>Apple Age Check</name>
-    <description>iOS implementation for Apple's Declared Age Range API (iOS 26+). Returns normalized age signals.</description>
+    <description>iOS implementation for Apple's Declared Age Range API (iOS 26+).</description>
     <license>MIT</license>
     <keywords>cordova,ios,age,verification,declared,age-range</keywords>
     <author email="info@globules.io">globules.io</author>
@@ -13,7 +13,14 @@
         <engine name="cordova-ios" version=">=7.0.0" />
     </engines>
     <platform name="ios">
+        <framework src="DeclaredAgeRange.framework" weak="true" />
         <source-file src="src/ios/AgeCheckPlugin.swift" />
+        <config-file target="Entitlements-Debug.plist" parent="com.apple.developer.declared-age-range">
+            <true />
+        </config-file>
+        <config-file target="Entitlements-Release.plist" parent="com.apple.developer.declared-age-range">
+            <true />
+        </config-file>
         <config-file target="config.xml" parent="/widget">
             <feature name="AgeCheck">
                 <param name="ios-package" value="AgeCheckPlugin" />
